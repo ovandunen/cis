@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="pos_qr_code_receipt" inherit_id="point_of_sale.pos_ticket">
+        <xpath expr="//t[@t-if='receipt.orderlines']" position="after">
+            <t t-if="receipt.orderlines">
+                <div class="qr-code">
+                    <img t-att-src="'/pos_qr_code/static/src/img/qr_code.png'" />
+                </div>
+            </t>
+        </xpath>
+    </template>
+</odoo>

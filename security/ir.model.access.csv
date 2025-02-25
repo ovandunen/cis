@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_pos_order,pos.order,model_pos_order,,1,1,1,1
+access_pos_config,pos.config,model_pos_config,,1,1,1,1
+access_vsdc_integration,vsdc.integration,model_vsdc_integration,,1,0,0,0
+access_pos_audit_log,pos.audit.log,model_pos_audit_log,,1,0,0,0
+

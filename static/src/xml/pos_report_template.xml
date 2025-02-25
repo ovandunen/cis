@@ -1,0 +1,15 @@
+<odoo>
+    <template id="z_report_template">
+        <t t-call="web.html_container">
+            <t t-foreach="doc_ids" t-as="doc">
+                <h2>Z-Bericht für Kassensitzung <t t-esc="doc.name"/></h2>
+                <p><strong>Ende der Sitzung:</strong> <t t-esc="doc.session_end_time"/></p>
+                <p><strong>Gesamtverkäufe:</strong> <t t-esc="doc.total_sales"/> €</p>
+                <p><strong>Steuern:</strong> <t t-esc="doc.total_taxes"/> €</p>
+                <p><strong>Rückerstattungen:</strong> <t t-esc="doc.total_refunds"/> €</p>
+                <p><strong>Verkaufte Artikel:</strong> <t t-esc="doc.total_items_sold"/></p>
+                <p><strong>Gesamtzahl der Zahlungen:</strong> <t t-esc="doc.total_payments"/> €</p>
+            </t>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Add assets to the backend (Point of Sale interface) -->
+    <template id="assets_backend" name="POS Custom Assets" inherit_id="point_of_sale.assets">
+        <!-- Include JavaScript files -->
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/rwander_tax_reporting/static/src/js/pos_registration.js"/>
+            <script type="text/javascript" src="/rwander_tax_reporting/static/src/js/pos_payment_screen.js"/>
+            <script type="text/javascript" src="/rwander_tax_reporting/static/src/js/currency_selection.js"/>
+            <script type="text/javascript" src="/rwander_tax_reporting/static/src/js/pos_report_button.js"/>
+        </xpath>
+
+        <!-- Include XML templates -->
+        <xpath expr="." position="inside">
+            <t t-name="pos_receipt_template" t-inherit="point_of_sale.template" t-inherit-mode="extension">
+                <xpath expr="//div[@class='receipt']" position="inside">
+                    <t t-call="/rwander_tax_reporting/static/src/xml/pos_receipt.xml"/>
+                </xpath>
+            </t>
+            <t t-name="pos_report_template" t-inherit="point_of_sale.template" t-inherit-mode="extension">
+                <xpath expr="//div[@class='report']" position="inside">
+                    <t t-call="/rwander_tax_reporting/static/src/xml/pos_report_template.xml"/>
+                </xpath>
+            </t>
+            <t t-name="pos_config_currency_template" t-inherit="point_of_sale.template" t-inherit-mode="extension">
+                <xpath expr="//div[@class='config']" position="inside">
+                    <t t-call="/rwander_tax_reporting/static/src/xml/pos_config_currency.xml"/>
+                </xpath>
+            </t>
+        </xpath>
+    </template>
+</odoo>
