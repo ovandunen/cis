@@ -1,5 +1,5 @@
 <odoo>
     <record id="bus_channel_vsd_communication" model="bus.bus">
-        <field name="name">vsd_communication</field>
+        <field name="channel">vsd_communication</field>
     </record>
 </odoo>
