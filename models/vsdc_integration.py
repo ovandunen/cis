@@ -6,6 +6,7 @@ _logger = logging.getLogger(__name__)
 class VSDCIntegration(models.Model):
     _name = 'vsdc.integration'  # Neues Modell anstatt Erweiterung
     _description = 'VSDC Integration'
+    MRC_CODE_LENGTH = 26
 
     def validate_with_vsdc(self, transaction_data):
         """Synchronisierung der VSDC-Validierung."""
@@ -32,7 +33,7 @@ class VSDCIntegration(models.Model):
 
     def _send_to_vsdc_server(self, payload):
         _logger.info("Sende Daten an VSDC: %s", payload)
-        if payload['mrc_code'] != 'VALID_MRC_CODE':
+        if len(payload['mrc_code']) !=  MRC_CODE_LENGTH :
             return {'status': 'error', 'error': 'Ungültiger MRC-Code'}
         return {'status': 'success'}
 
